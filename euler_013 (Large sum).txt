@@ -1,0 +1,17 @@
+import scala.io.Source
+val source = Source.fromFile("D:/Code/Scala/_Euler_txt/data/euler_13.txt")
+val base = source.getLines().toList
+val c = 100000
+val base4500 = (base map (_.drop(45).toLong)).reduce(_+_)
+val base4005 = (base map (_.drop(40).dropRight( 5).toLong)).reduce(_+_)
+val base3510 = (base map (_.drop(35).dropRight(10).toLong)).reduce(_+_)
+val base3015 = (base map (_.drop(30).dropRight(15).toLong)).reduce(_+_)
+val base2520 = (base map (_.drop(25).dropRight(20).toLong)).reduce(_+_)
+val base2025 = (base map (_.drop(20).dropRight(25).toLong)).reduce(_+_)
+val base1530 = (base map (_.drop(15).dropRight(30).toLong)).reduce(_+_)
+val base1035 = (base map (_.drop(10).dropRight(35).toLong)).reduce(_+_)
+val base0540 = (base map (_.drop( 5).dropRight(40).toLong)).reduce(_+_)
+val base0045 = (base map (_.dropRight(45).toLong)).reduce(_+_)
+val result = base0045*c + base0540 + (base1035 + (base1530 +
+  (base2025 + (base2520 + (base3015 + (base3510 + (base4005 + base4500/c)/c)/c)/c)/c)/c)/c)/c
+println(result.toString.take(10))

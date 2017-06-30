@@ -1,0 +1,16 @@
+def max (x: Int, y: Int) = if (x>y) x else y
+def msd (n: Int): List[Int] =
+  2 to math.sqrt(n).toInt find (p=> n%p == 0) match {
+    case Some(x) => x :: msd(n/x)
+    case None => List(n)
+  }
+def nocForTwo (xMsd: Int, yMsd: Int) = {
+  val x = msd(xMsd);  val y = msd(yMsd)
+  for (i <- 1 to max(x.max, y.max); j <- 1 to max(x.count(s => s == i), y.count(s => s == i)))
+  yield i
+}
+var result: Int = 1
+for (i <- 2 to 20){
+  result = nocForTwo(result, i).reduce(_*_)
+}
+println(result)

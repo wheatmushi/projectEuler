@@ -1,0 +1,14 @@
+def palindrom (g: Int, h: Int): Boolean = {
+  val k = g * h
+  if (g * h < 100000) //5-num
+    if ((k / 10000 == k % 10) && ((k / 1000) % 10) == ((k / 10) % 10))
+      return true
+    else return false
+  else
+      if ( ((k/100000)==k%10) && (((k/10000)%10) == ((k/10)%10)) && (((k/1000)%10==((k/100)%10))))
+        return true
+      else return false
+}
+
+val result = for (i <- 999 to 100 by -1; j <- 999 to 100 by -1; if palindrom(i,j)) yield (i*j)
+println(result.max)

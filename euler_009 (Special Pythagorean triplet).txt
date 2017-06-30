@@ -1,0 +1,7 @@
+val usList = for {a <- 1 to 1000
+  b = (500000 - 1000 * a.toFloat) / (1000 - a.toFloat)
+  if (b % 10 == 0)
+  if (b > 0 && 1000 - a - b > 0)
+  }
+  yield a * b.toInt * (1000 - a - b).toInt
+println(usList)

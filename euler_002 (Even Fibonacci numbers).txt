@@ -1,0 +1,14 @@
+def get_fib(n: Int):List[Int] =
+  if (n == 1) List( 1 )
+  else
+    if (n == 2) List(2, 1)
+    else {
+      val x = get_fib(n-1)
+      if (x(0) + x(1) < 4000000)
+          (x(0)+x(1))::x
+      else x
+      }
+
+val fibonacci: List[Int] = get_fib(200)
+val fib_fil: List[Int] = fibonacci.filter(s=>s%2==0)
+println(fib_fil.reduce(_+_))

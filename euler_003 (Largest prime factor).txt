@@ -1,0 +1,6 @@
+def msd (aux: Long, n: Long): List[Long] =
+  aux to math.sqrt(n).toInt find (p=> n%p == 0) match {
+  case Some(x) => x::msd(x, n/x)
+  case None => List(n)
+}
+println(msd(2, 600851475143L).max)

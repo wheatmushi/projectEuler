@@ -1,0 +1,3 @@
+val sq = (1 to 100).map(s=>s*s)
+val sum = (1 to 100).reduce(_+_)
+println(sum*sum - sq.reduce(_+_))
