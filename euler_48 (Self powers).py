@@ -7,11 +7,11 @@ def power (n):
 
 summa = 0
 
-def summ (summa, res):
+def summm (summa, res):
     return (summa+res)%10000000000
 
 for n in range(1,1001):
     res = power(n)
-    summa = summ(summa, res)
+    summa = summm(summa, res)
 
 print(summa)
