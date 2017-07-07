@@ -1,5 +1,3 @@
-from time import time
-
 f = open('p022_names.txt','r')
 names = f.read()
 names = names.replace('"','').split(',')
