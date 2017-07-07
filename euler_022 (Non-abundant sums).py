@@ -10,16 +10,14 @@ def divisors(n):
     return sum(set(div))
 
 abundants=[]
+abundants_sums=[]
 
 for n in range(1,28124):
     if n<divisors(n):
         abundants.append(n)
 
-abundants_sums=[]
-
 for i in combinations_with_replacement(abundants,2):
-    s=sum(i)
-    abundants_sums.append(s)
+    abundants_sums.append(sum(i))
 
 ab=set(abundants_sums)
 total=0
@@ -28,13 +26,4 @@ for i in range(1,28124):
     if i not in ab:
         total+=i
 
-'''
-for n in range(1,28124):
-    for m in abundants:
-        if n<2*m:
-            break
-        if n-m in abundants:
-            total-=n
-            break
-            '''
 print(total)
